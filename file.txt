@@ -23,3 +23,248 @@ dev → stage → prod with workspaces or modules
 
 ✔ Using Terraform Backend (done)
 S3 + DynamoDB / Azure Storage for state
+
+============================================================================================================
+🌐 Types of Websites / Applications & What Tools They Use
+Below are the 4 common types of modern applications, what tools they use, and why.
+
+1️⃣ Small Static Website
+Examples:
+
+Portfolio website
+Company landing page
+Simple blog
+
+🔧 Tools Used
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+NeedToolHostingS3, Azure Static Web App, NetlifyNo backendNo Docker, no KubernetesNo infra codeNo Terraform requiredOptional CI/CDGitHub Actions
+💡 How project works:
+
+Developer writes HTML/CSS/JS
+Push to Git
+CI/CD deploys it to S3/Static Web Apps
+
+❌ No need for Docker, Kubernetes, Terraform
+
+2️⃣ Medium Website (API + DB)
+Examples:
+
+Small e-commerce
+College project
+CRM website
+
+🔧 Tools Used
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+NeedToolBackend hostingEC2 / Azure VMDatabaseRDS / MySQLSmall automationTerraform (optional)PackagingDocker (optional)CI/CDGitHub Actions / Azure DevOps
+💡 How project works:
+
+Docker used to containerize the app
+Terraform creates EC2 + Database
+CI/CD deploys Docker container to VM
+
+❌ Kubernetes not needed here
+✔ Terraform + Docker is enough
+
+3️⃣ Large Website / Microservices
+Examples:
+
+Zomato
+Swiggy
+Netflix
+Amazon
+
+🔧 Tools Used
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+NeedToolContainer platformDockerContainer orchestrationKubernetes (K8s)Infrastructure provisioningTerraformSecrets managementVault / KMSCI/CDAzure DevOps / GitHub Actions / JenkinsMonitoringPrometheus / Grafana
+💡 Why so many tools required?
+🟩 Docker → Packages each microservice
+Examples: order service, restaurant service, payment service
+🟦 Kubernetes → Runs & manages those containers
+
+Auto-healing
+Load balancing
+Auto-scaling
+Zero downtime deployments
+
+🟧 Terraform → Creates the infra
+
+VPC
+EKS / AKS / GKE
+Databases (RDS)
+Load balancers
+Network security
+
+🟨 CI/CD → Automates deployment
+
+Build Docker image
+Push to registry
+Apply Terraform
+Deploy to Kubernetes
+
+
+🏗 How a Large Project Actually Works (Real Zomato Example)
+Here’s the full flow in a simple diagram:
+Developer 
+    ↓
+Writes code → pushes to GitHub/Azure Repo
+    ↓
+CI Pipeline
+    - Build Docker image
+    - Run tests
+    - Push image to registry (ECR/ACR)
+    ↓
+Terraform
+    - Creates Kubernetes cluster
+    - Creates VPC, subnets, RDS, LB
+    ↓
+Kubernetes
+    - Pulls Docker image
+    - Runs pods
+    - Scales automatically
+    ↓
+User accesses application
+
+
+4️⃣ High Traffic, Global Applications
+Examples:
+
+Instagram
+YouTube
+Flipkart on Big Billion Day
+
+🔧 Tools Used (Advanced)
+
+Docker
+Kubernetes
+Terraform
+Service Mesh (Istio)
+API Gateway
+Global CDN
+Auto-scaling groups
+Multi-region deployments
+
+These apps need:
+
+Massive scaling
+Multi-region failover
+Automatic deployments
+24/7 uptime
+
+So all modern DevOps tools become necessary.
+
+🎯 In Summary — Why These Tools Are Needed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ToolWhy NeededDockerPackages apps into containers so they run anywhereKubernetesManages 100s–1000s of containers automaticallyTerraformCreates infrastructure using code, no manual workCI/CDAutomates build, test, deploy for fast releasesCloud (AWS/Azure)Provides servers, DBs, networking
+They are not duplicate tools → each has a unique purpose.

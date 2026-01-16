@@ -1,0 +1,25 @@
+# Blogs-and-notes
+
+**Zomato Concept                              DevOps Tool**
+Food                                        Applicationcode
+Food packed in a box                        Docker container
+Delivery fleet & routing                     Kubernetes
+Building restaurant, kitchen, roads          Terraform
+Order processing system                      CI/CD pipeline
+
+
+I can   handle projects like:
+✔ Building AWS Infra(done)
+VPC, subnets, NAT, IGW, EC2, ALB, ASG, RDS
+
+                     ✔ Deploying Kubernetes
+                    EKS nodes, Fargate, cluster autoscaler
+                    
+✔ Creating CI/CD Pipeline
+Terraform Plan → Terraform Apply → Deploy App
+
+✔ Creating Multi‑Environment Infra (done)
+dev → stage → prod with workspaces or modules
+
+✔ Using Terraform Backend (done)
+S3 + DynamoDB / Azure Storage for state
